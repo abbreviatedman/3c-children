@@ -454,6 +454,9 @@ You’re now equipped with a comprehensive understanding of how to use props.chi
 
 ### Step 10: Real-World Use Case - Modal Component
 
+A popular UI component for many years now is the Modal. Modals are often used to display additional information or actions without navigating away from the current page. They can be used for forms, alerts, confirmations, and more. You can think of them as a pop-up, like an ad, but they are more typically used for prompting the user for more information.
+
+In our case, we'll have whichever component is rendering the Modal pass in its content as children. That component will also handle the logic for showing and hiding the Modal. This allows us to create a reusable Modal component that can be used throughout our application without being tied to a specific structure or content.
 
 1. **Create a Modal Component:**
 
