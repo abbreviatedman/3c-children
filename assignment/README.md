@@ -24,13 +24,13 @@ Spend some time exploring the Star Wars API. Familiarize yourself with how to ma
 
 #### Access the API:
 
-1. Visit the SWAPI documentation: [https://swapi.dev/documentation](https://swapi.dev/documentation)
-2. Use your browser or a tool like Postman to make a GET request to `https://swapi.dev/api/people/1/`.
+1. Visit the SWAPI documentation: [https://swapi.info/documentation](https://swapi.info/documentation)
+2. Use your browser or a tool like Postman to make a GET request to `https://swapi.info/api/people/1/`.
 3. JSON response to understand the structure of the data.
 
 #### Example JSON Response:
 
-Example JSON response for a GET request to `https://swapi.dev/api/people/1/`:
+Example JSON response for a GET request to `https://swapi.info/api/people/1/`:
 
 ```json
 {
@@ -42,12 +42,12 @@ Example JSON response for a GET request to `https://swapi.dev/api/people/1/`:
   "eye_color": "blue",
   "birth_year": "19BBY",
   "gender": "male",
-  "homeworld": "https://swapi.dev/api/planets/1/",
+  "homeworld": "https://swapi.info/api/planets/1/",
   "films": [
-    "https://swapi.dev/api/films/1/",
-    "https://swapi.dev/api/films/2/",
-    "https://swapi.dev/api/films/3/",
-    "https://swapi.dev/api/films/6/"
+    "https://swapi.info/api/films/1/",
+    "https://swapi.info/api/films/2/",
+    "https://swapi.info/api/films/3/",
+    "https://swapi.info/api/films/6/"
   ]
   // Additional fields have been truncated for brevity
 }
@@ -253,7 +253,7 @@ Create a child component that will display the data fetched from the Star Wars A
 3. Initialize a state variable called `data` with an empty array using the `useState` hook.
 4. Import the `useEffect` hook and create a `useEffect` call.
 5. Inside the `useEffect` call, create an `async` function named `fetchData`.
-6. In the `fetchData` function, make a `fetch` call to the URL `https://swapi.dev/api/people` and store the result in a variable.
+6. In the `fetchData` function, make a `fetch` call to the URL `https://swapi.info/api/people` and store the result in a variable.
 7. Convert the result to JSON and store it in another variable.
 8. Update the `data` state variable with the JSON result.
 9. Call the `fetchData` function inside the `useEffect`.
