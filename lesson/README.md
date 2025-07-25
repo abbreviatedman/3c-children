@@ -225,134 +225,9 @@ function ChildComponentC () {
 export default ChildComponentC;
 ```
 
-### Step 6: Real-World Use Case - Modal Component
+### Step 6: Real-World Use Case - Sidebar Component
 
-Let’s implement a more real-world use case by creating a Modal component that can render its children.
-
-1. **Create a Modal Component:**
-
-**File:** `src/Modal.jsx`
-
-```jsx
-import React from 'react';
-import './Modal.css';
-
-const Modal = (props) => {
-  if (!props.show) {
-    return null;
-  }
-
-  return (
-    <div className="modal">
-      <div className="modal-content">
-        <span className="close" onClick={props.onClose}>&times;</span>
-        {props.children}
-      </div>
-    </div>
-  );
-};
-
-export default Modal;
-```
-
-2. Create a CSS file for Modal:
-
-**File:** `src/Modal.css`
-
-``` css
-.modal {
-  display: block;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.4);
-  padding-top: 60px;
-}
-
-.modal-content {
-  background-color: #fefefe;
-  margin: 5% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-}
-
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-```
-
-We can now create a reusable Modal that isn't bound to a particular structure.  This makes our component incredibly flexible in terms of how we design it while still retaining its Modal properties.
-
-### Step 7: Use the Modal in Your App
-
-Now let’s use the `Modal` component in your main `App` component to demonstrate how it can render child components using `props.children`.
-
-1. **Update App.js to include the Modal:**
-
-**File:** `src/App.jsx`
-
-```jsx
-import React, { useState } from 'react';
-import ParentComponent from './ParentComponent';
-import ChildComponentA from './ChildComponentA';
-import ChildComponentB from './ChildComponentB';
-import ChildComponentC from './ChildComponentC';
-import Modal from './Modal';
-import './App.css';
-
-function App() {
-  const [showModal, setShowModal] = useState(false);
-
-  return (
-    <div className="App">
-      <ParentComponent>
-        <ChildComponentA />
-        <ChildComponentB />
-        <ChildComponentC />
-        <p>This is another child element!</p>
-      </ParentComponent>
-      <button onClick={() => setShowModal(true)}>Show Modal</button>
-      <Modal show={showModal} onClose={() => setShowModal(false)}>
-        <h2>Modal Header</h2>
-        <p>This is some content inside the modal!</p>
-        <ChildComponentA />
-      </Modal>
-    </div>
-  );
-}
-
-export default App;
-```
-
-2. **Explanation:**
-
-The Modal component now takes show and onClose props to control its visibility and handle closing the modal.
-
-The Modal component uses props.children to render any child elements passed to it.
-
-We use a button in App.js to toggle the visibility of the Modal.
-
-Once you have updated the App.js file to include the Modal component and its functionality, you’re ready to see it in action.
-
-### Step 8: Real-World Use Case - Sidebar Component
-
-Another real-world use case for `props.children` is creating a Sidebar component that can render its children. Let’s implement a Sidebar component.
+Let’s implement a more real-world use case by creating a Sidebar component that can render its children.
 
 1. **Create a Sidebar Component:**
 
@@ -399,7 +274,7 @@ export default Sidebar;
 }
 ```
 
-### Step 9: Use the Sidebar in Your App
+### Step 7: Use the Sidebar in Your App
 
 Let’s use the `Sidebar` component in your main `App` component to demonstrate how it can render child components using `props.children`.
 
@@ -473,9 +348,9 @@ export default App;
 
 Once you have added the Sidebar component and its functionality to your App.js, you’ll be able to see the Sidebar rendering its child elements on the left side of the screen while the main content area displays the parent and child components, and the modal functionality.
 
-### Step 10: Real-World Use Case - Card Component
+### Step 8: Real-World Use Case - Card Component
 
-Another real-world use case for `props.children` is creating a Card component that can render its children. Let’s implement a Card component.
+Another real-world use case for `props.children` is creating a Card component that can render its children. This is a modern UI design that you've seen countless times. Let’s implement a Card component.
 
 1. **Create a Card Component:**
 
@@ -510,7 +385,7 @@ export default Card;
 }
 ```
 
-### Step 11: Use the Card in Your App
+### Step 9: Use the Card in Your App
 
 Let’s use the `Card` component in your main `App` component to demonstrate how it can render child components using `props.children`.
 
@@ -576,3 +451,128 @@ We use a new Card component in App.js to demonstrate its functionality.
 Once you have added the Card component and its functionality to your App.js, you’ll be able to see the Card rendering its child elements inside a styled card on the screen.
 
 You’re now equipped with a comprehensive understanding of how to use props.children to create flexible and reusable components in React. Test and experiment more, and feel free to ask if you need further assistance!
+
+### Step 10: Real-World Use Case - Modal Component
+
+
+1. **Create a Modal Component:**
+
+**File:** `src/Modal.jsx`
+
+```jsx
+import React from 'react';
+import './Modal.css';
+
+const Modal = (props) => {
+  if (!props.show) {
+    return null;
+  }
+
+  return (
+    <div className="modal">
+      <div className="modal-content">
+        <span className="close" onClick={props.onClose}>&times;</span>
+        {props.children}
+      </div>
+    </div>
+  );
+};
+
+export default Modal;
+```
+
+2. Create a CSS file for Modal:
+
+**File:** `src/Modal.css`
+
+``` css
+.modal {
+  display: block;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+  padding-top: 60px;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+```
+
+We can now create a reusable Modal that isn't bound to a particular structure.  This makes our component incredibly flexible in terms of how we design it while still retaining its Modal properties.
+
+### Step 11: Use the Modal in Your App
+
+Now let’s use the `Modal` component in your main `App` component to demonstrate how it can render child components using `props.children`.
+
+1. **Update App.js to include the Modal:**
+
+**File:** `src/App.jsx`
+
+```jsx
+import React, { useState } from 'react';
+import ParentComponent from './ParentComponent';
+import ChildComponentA from './ChildComponentA';
+import ChildComponentB from './ChildComponentB';
+import ChildComponentC from './ChildComponentC';
+import Modal from './Modal';
+import './App.css';
+
+function App() {
+  const [showModal, setShowModal] = useState(false);
+
+  return (
+    <div className="App">
+      <ParentComponent>
+        <ChildComponentA />
+        <ChildComponentB />
+        <ChildComponentC />
+        <p>This is another child element!</p>
+      </ParentComponent>
+      <button onClick={() => setShowModal(true)}>Show Modal</button>
+      <Modal show={showModal} onClose={() => setShowModal(false)}>
+        <h2>Modal Header</h2>
+        <p>This is some content inside the modal!</p>
+        <ChildComponentA />
+      </Modal>
+    </div>
+  );
+}
+
+export default App;
+```
+
+2. **Explanation:**
+
+The Modal component now takes show and onClose props to control its visibility and handle closing the modal.
+
+The Modal component uses props.children to render any child elements passed to it.
+
+We use a button in App.js to toggle the visibility of the Modal.
+
+Once you have updated the App.js file to include the Modal component and its functionality, you’re ready to see it in action.
+
