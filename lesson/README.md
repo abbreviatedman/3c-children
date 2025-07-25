@@ -225,7 +225,109 @@ function ChildComponentC () {
 export default ChildComponentC;
 ```
 
-### Step 6: Real-World Use Case - Sidebar Component
+### Step 6: Real-World Use Case - Card Component
+
+Another real-world use case for `props.children` is creating a Card component that can render its children. This is a modern UI design that you've seen countless times. Let’s implement a Card component.
+
+1. **Create a Card Component:**
+
+**File:** `src/Card.jsx`
+
+```jsx
+import React from 'react';
+import './Card.css';
+
+const Card = (props) => {
+  return (
+    <div className="card">
+      {props.children}
+    </div>
+  );
+};
+
+export default Card;
+```
+
+2. **Create a CSS file for Card:**
+
+**File:** src/Card.css
+
+``` css
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px;
+  box-shadow: 2px 2px 8px #aaa;
+}
+```
+
+### Step 7: Use the Card in Your App
+
+Let’s use the `Card` component in your main `App` component to demonstrate how it can render child components using `props.children`.
+
+1. **Update App.js to include the Card:**
+
+**File:** `src/App.jsx`
+
+```jsx
+import React, { useState } from 'react';
+import ParentComponent from './ParentComponent';
+import ChildComponentA from './ChildComponentA';
+import ChildComponentB from './ChildComponentB';
+import ChildComponentC from './ChildComponentC';
+import Modal from './Modal';
+import Sidebar from './Sidebar';
+import Card from './Card';
+import './App.css';
+
+function App() {
+  const [showModal, setShowModal] = useState(false);
+
+  return (
+    <div className="App">
+      <Sidebar>
+        <p>Link 1</p>
+        <p>Link 2</p>
+        <p>Link 3</p>
+      </Sidebar>
+      <div className="content">
+        <ParentComponent>
+          <ChildComponentA />
+          <ChildComponentB />
+          <ChildComponentC />
+          <p>This is another child element!</p>
+        </ParentComponent>
+        <Card>
+          <h2>Card Header</h2>
+          <p>This is some content inside the card!</p>
+          <ChildComponentB />
+        </Card>
+        <button onClick={() => setShowModal(true)}>Show Modal</button>
+        <Modal show={showModal} onClose={() => setShowModal(false)}>
+          <h2>Modal Header</h2>
+          <p>This is some content inside the modal!</p>
+          <ChildComponentA />
+        </Modal>
+      </div>
+    </div>
+  );
+}
+
+export default App;
+```
+
+**Explanation:**
+
+The Card component now takes children and renders them inside a styled card.
+
+The Card component uses props.children to render any child elements passed to it.
+
+We use a new Card component in App.js to demonstrate its functionality.
+
+Once you have added the Card component and its functionality to your App.js, you’ll be able to see the Card rendering its child elements inside a styled card on the screen.
+
+### Step 8: Real-World Use Case - Sidebar Component
 
 A sidebar component could include layouts for both desktop and mobile views, allowing for a responsive design. The sidebar can render its children components using `props.children`, making it flexible to include any content you want.
 
@@ -283,7 +385,7 @@ export default Sidebar;
 }
 ```
 
-### Step 7: Use the Sidebar in Your App
+### Step 9: Use the Sidebar in Your App
 
 Let’s use the `Sidebar` component in your main `App` component to demonstrate how it can render child components using `props.children`.
 
@@ -355,111 +457,7 @@ export default App;
 }
 ```
 
-Once you have added the Sidebar component and its functionality to your App.js, you’ll be able to see the Sidebar rendering its child elements on the left side of the screen while the main content area displays the parent and child components, and the modal functionality.
-
-### Step 8: Real-World Use Case - Card Component
-
-Another real-world use case for `props.children` is creating a Card component that can render its children. This is a modern UI design that you've seen countless times. Let’s implement a Card component.
-
-1. **Create a Card Component:**
-
-**File:** `src/Card.jsx`
-
-```jsx
-import React from 'react';
-import './Card.css';
-
-const Card = (props) => {
-  return (
-    <div className="card">
-      {props.children}
-    </div>
-  );
-};
-
-export default Card;
-```
-
-2. **Create a CSS file for Card:**
-
-**File:** src/Card.css
-
-``` css
-.card {
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 16px;
-  margin: 16px;
-  box-shadow: 2px 2px 8px #aaa;
-}
-```
-
-### Step 9: Use the Card in Your App
-
-Let’s use the `Card` component in your main `App` component to demonstrate how it can render child components using `props.children`.
-
-1. **Update App.js to include the Card:**
-
-**File:** `src/App.jsx`
-
-```jsx
-import React, { useState } from 'react';
-import ParentComponent from './ParentComponent';
-import ChildComponentA from './ChildComponentA';
-import ChildComponentB from './ChildComponentB';
-import ChildComponentC from './ChildComponentC';
-import Modal from './Modal';
-import Sidebar from './Sidebar';
-import Card from './Card';
-import './App.css';
-
-function App() {
-  const [showModal, setShowModal] = useState(false);
-
-  return (
-    <div className="App">
-      <Sidebar>
-        <p>Link 1</p>
-        <p>Link 2</p>
-        <p>Link 3</p>
-      </Sidebar>
-      <div className="content">
-        <ParentComponent>
-          <ChildComponentA />
-          <ChildComponentB />
-          <ChildComponentC />
-          <p>This is another child element!</p>
-        </ParentComponent>
-        <Card>
-          <h2>Card Header</h2>
-          <p>This is some content inside the card!</p>
-          <ChildComponentB />
-        </Card>
-        <button onClick={() => setShowModal(true)}>Show Modal</button>
-        <Modal show={showModal} onClose={() => setShowModal(false)}>
-          <h2>Modal Header</h2>
-          <p>This is some content inside the modal!</p>
-          <ChildComponentA />
-        </Modal>
-      </div>
-    </div>
-  );
-}
-
-export default App;
-```
-
-**Explanation:**
-
-The Card component now takes children and renders them inside a styled card.
-
-The Card component uses props.children to render any child elements passed to it.
-
-We use a new Card component in App.js to demonstrate its functionality.
-
-Once you have added the Card component and its functionality to your App.js, you’ll be able to see the Card rendering its child elements inside a styled card on the screen.
-
-You’re now equipped with a comprehensive understanding of how to use props.children to create flexible and reusable components in React. Test and experiment more, and feel free to ask if you need further assistance!
+Once you have added the Sidebar component and its functionality to your App.js, you’ll be able to see the Sidebar rendering its child elements on the left side of the screen while the main content area displays the parent and child components. Try lowering the screen width to see how the sidebar adapts to different screen sizes, thanks to the media query in the CSS.
 
 ### Step 10: Real-World Use Case - Modal Component
 
