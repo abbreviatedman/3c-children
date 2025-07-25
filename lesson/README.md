@@ -227,7 +227,7 @@ export default ChildComponentC;
 
 ### Step 6: Real-World Use Case - Sidebar Component
 
-Let’s implement a more real-world use case by creating a Sidebar component that can render its children.
+A sidebar component could include layouts for both desktop and mobile views, allowing for a responsive design. The sidebar can render its children components using `props.children`, making it flexible to include any content you want.
 
 1. **Create a Sidebar Component:**
 
