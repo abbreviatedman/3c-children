@@ -128,33 +128,59 @@ Create a CSS file named `Sidebar.css` in the `src` directory and add the followi
 **File:** `src/Sidebar.css`
 
 ```css
-.sidebar {
-  width: 250px;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: #333;
-  padding-top: 20px;
+.sidebar .sidebar {
+  width: 100%;
+  position: static;
+  background: #333;
   color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .sidebar .links {
-  margin-top: 20px;
   display: flex;
-  flex-direction: column;
-  align-items: start;
-  padding-left: 20px;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
 }
 
 .sidebar .links a {
   color: white;
-  margin: 5px 0;
+  margin: 0 10px;
   text-decoration: none;
 }
 
 .sidebar .links a:hover {
   text-decoration: underline;
+}
+
+@media (min-width: 1200px) {
+  .sidebar {
+    width: 250px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 20px;
+  }
+
+  .sidebar h2 {
+    margin-left: 20px;
+  }
+
+  .sidebar .links {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 20px;
+    margin-top: 20px;
+  }
+
+  .sidebar .links a {
+    margin: 5px 0;
+  }
 }
 ```
 
