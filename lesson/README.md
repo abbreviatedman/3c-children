@@ -255,60 +255,30 @@ export default Sidebar;
 
 ``` css
 .sidebar {
+  position: relative;
   width: 100%;
   height: auto;
-  position: static;
-  top: auto;
-  left: auto;
-  background-color: #333;
-  padding-top: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  z-index: 2;
+  z-index: 1;
+  background-color: #111;
+  padding-top: 20px;
   color: white;
 }
 
-.sidebar .links {
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding-left: 0;
-  margin-top: 0;
-  display: flex;
+.sidebar h2 {
+  padding-left: 10px;
 }
 
-.sidebar .links a {
-  color: white;
-  margin: 0 10px;
-  text-decoration: none;
+.sidebar p {
+  padding-left: 10px;
 }
 
-.sidebar .links a:hover {
-  text-decoration: underline;
-}
-
-@media (min-width: 1200px) {
+@media (min-width: 1500px) {
   .sidebar {
     width: 250px;
-    height: 100%;
-    position: fixed;
+    height: 100vh;
+    position: absolute;
     top: 0;
     left: 0;
-    background-color: #333;
-    padding-top: 20px;
-    flex-direction: column;
-    align-items: start;
-    z-index: 2;
-  }
-  .sidebar .links {
-    flex-direction: column;
-    align-items: start;
-    padding-left: 20px;
-    margin-top: 20px;
-  }
-  .sidebar .links a {
-    margin: 5px 0;
   }
 }
 ```
